@@ -1,51 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Interactive card details form</title>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 18px;
+      }
 
-  000
+      main {
+        display: grid;
+        grid-template-columns: 450px 1fr;
+        height: 100vh;
+      }
 
-  Cardholder Name
-  e.g. Jane Appleseed
+      aside {
+        background-image: url(/images/bg-main-desktop.png);
+      }
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+      aside .card-1,
+      aside .card-2 {
+        position: relative;
+      }
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+      aside .card-1 {
+        top: 20%;
+        left: 30%;
+        color: white;
+      }
 
-  CVC
-  e.g. 123
+      aside .card-1 > div {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 2rem;
+        padding: 1.5rem;
+      }
 
-  Confirm
+      aside .card-1 > div > div {
+        display: flex;
+        text-transform: uppercase;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-  <!-- Completed state start -->
+      aside .card-1 > div .card-logo {
+        width: 4.5rem;
+        margin-bottom: auto;
+      }
+      aside .card-2 {
+        top: 25%;
+        left: 45%;
+      }
 
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      section {
+        display: grid;
+        place-items: center;
+      }
+
+      .input_group > label {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .input_group > div > label {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      section form > div input {
+        width: 20rem;
+        height: 3rem;
+        border: 1px solid gray;
+        border-radius: 0.3rem;
+        padding: 1rem;
+      }
+
+      .input_group + .input_group {
+        margin-top: 1rem;
+      }
+
+      .input_group:last-of-type {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+      .date_input {
+        width: 3rem;
+      }
+
+      .cvc_input {
+        width: 100%;
+      }
+
+      form button {
+        width: 100%;
+        height: 3rem;
+        border-radius: 0.3rem;
+        border: none;
+        background: hsl(278, 68%, 11%);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <aside>
+        <div class="card-1">
+          <img src="/images/bg-card-front.png" alt="" />
+          <div>
+            <img class="card-logo" src="/images/card-logo.svg" alt="" />
+            <h2>0000 0000 0000 0000</h2>
+
+            <div>
+              <h3>Jane Appleseed</h3>
+              <span>00/00</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-2"><img src="/images/bg-card-back.png" alt="" /></div>
+      </aside>
+      <section>
+        <form action="">
+          <div class="input_group">
+            <label for="">cardholder name</label
+            ><input placeholder="e.g. Jane Appleseed" type="text" />
+          </div>
+          <div class="input_group">
+            <label for="">card number</label>
+            <input placeholder="e.g. 1234 5678 9123 0000" type="text" />
+          </div>
+          <div class="input_group">
+            <div>
+              <label for="">exp date(mm/yy)</label>
+              <input class="date_input" placeholder="MM" type="text" />
+              <input class="date_input" placeholder="YY" type="text" />
+            </div>
+            <div>
+              <label for="">cvc</label>
+              <input class="cvc_input" placeholder="e.g. 123" type="text" />
+            </div>
+          </div>
+          <button>Confirm</button>
+        </form>
+      </section>
+    </main>
+    <!-- 0000 0000 0000 0000 Jane Appleseed 00/00 000 Cardholder Name e.g. Jane
+    Appleseed Card Number e.g. 1234 5678 9123 0000 Exp. Date (MM/YY) MM YY CVC
+    e.g. 123 Confirm
+ -->
+    <!-- Completed state start -->
+
+    <!-- Thank you! We've added your card details Continue -->
+  </body>
 </html>
