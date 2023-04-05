@@ -42,10 +42,15 @@ aside {
 }
 
 img {
-  width: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
 }
 
 @media (max-width: 1000px) {
+  main {
+    grid-template-columns: 300px 1fr;
+  }
+
   .card_front,
   .card_back {
     width: 80%;
@@ -141,7 +146,8 @@ section {
   gap: 0.5rem;
 }
 
-form button {
+form button,
+.completeState button {
   font-family: inherit;
   height: 3rem;
   border-radius: 0.3rem;
@@ -150,4 +156,23 @@ form button {
   background: var(--clr-dark-violet);
   color: var(--clr-light-grayish-violet);
   cursor: pointer;
+}
+
+.completeState {
+  text-align: center;
+}
+
+.completeState img {
+  margin-bottom: 1.5rem;
+}
+
+.completeState-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.completeState-desc {
+  color: var(--clr-dark-grayishviolet);
+  margin-bottom: 1rem;
 }

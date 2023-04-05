@@ -50,6 +50,7 @@
               id="card_holder_name_input"
               placeholder="e.g. Jane Appleseed"
               type="text"
+              maxlength="30"
             />
           </div>
           <div class="form_group">
@@ -67,13 +68,28 @@
             <div>
               <label for="">exp date (mm/yy)</label>
               <div class="exp_date_container">
-                <input id="exp_month_input" placeholder="MM" type="text" />
-                <input id="exp_year_input" placeholder="YY" type="text" />
+                <input
+                  id="exp_month_input"
+                  maxlength="2"
+                  placeholder="MM"
+                  type="text"
+                />
+                <input
+                  id="exp_year_input"
+                  maxlength="2"
+                  placeholder="YY"
+                  type="text"
+                />
               </div>
             </div>
             <div>
               <label for="">cvc</label>
-              <input id="cvc_input" placeholder="e.g. 123" type="text" />
+              <input
+                id="cvc_input"
+                maxlength="3"
+                placeholder="e.g. 123"
+                type="text"
+              />
             </div>
           </div>
           <button>Confirm</button>

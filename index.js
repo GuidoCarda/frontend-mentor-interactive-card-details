@@ -2,11 +2,13 @@ const cardHolderInput = document.querySelector("#card_holder_name_input");
 const cardNumberInput = document.querySelector("#card_number_input");
 const expMonthInput = document.querySelector("#exp_month_input");
 const expYearInput = document.querySelector("#exp_year_input");
-const formElem = document.querySelector("form");
+const cvcInput = document.querySelector("#cvc_input");
 
+const formElem = document.querySelector("form");
 const cardNumberElem = document.querySelector(".card_number");
 const cardHolderNameElem = document.querySelector(".cardholder_name");
 const expDateElem = document.querySelector(".card_exp_date");
+const cvcElem = document.querySelector(".card_cvc");
 
 cardHolderInput.addEventListener("keyup", (e) => {
   console.log(e.target.value);
@@ -25,7 +27,31 @@ expYearInput.addEventListener("keyup", (e) => {
   expDateElem.children[1].textContent = e.target.value;
 });
 
+cvcInput.addEventListener("keyup", (e) => {
+  cvcElem.textContent = e.target.value;
+});
+
 formElem.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (cardHolderInput) {
+  }
+  if (cardNumberInput.value) {
+  }
+  if (expMonthInput.value) {
+  }
+  if (expYearInput.value) {
+  }
+  if (cvcInput.value) {
+  }
+
+  document.querySelector("section").innerHTML = `
+    <div class='completeState'/>  
+      <img src="/images/icon-complete.svg"/>
+      <h1 class='completeState-title'>thank you</h1>
+      <p class='completeState-desc'>we've added your cards details</p>
+      <button>continuar</button>
+    </div>
+  `;
   console.log("submit");
 });
