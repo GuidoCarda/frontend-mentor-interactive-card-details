@@ -110,6 +110,23 @@ section {
   place-items: center;
 }
 
+.form_group {
+  position: relative;
+}
+
+.form_group > .form-error {
+  display: none;
+  position: absolute;
+  bottom: -1.125rem;
+  left: 0;
+  font-size: 0.8rem;
+  color: var(--clr-error);
+}
+
+.form-error.visible {
+  display: block;
+}
+
 .form_group label {
   display: block;
   text-transform: uppercase;
@@ -132,7 +149,7 @@ section {
 }
 
 .form_group + .form_group {
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
 }
 
 .form_group:last-of-type {
@@ -146,8 +163,7 @@ section {
   gap: 0.5rem;
 }
 
-form button,
-.completeState button {
+.button {
   font-family: inherit;
   height: 3rem;
   border-radius: 0.3rem;

@@ -11,12 +11,17 @@ const expDateElem = document.querySelector(".card_exp_date");
 const cvcElem = document.querySelector(".card_cvc");
 
 cardHolderInput.addEventListener("keyup", (e) => {
-  console.log(e.target.value);
   cardHolderNameElem.textContent = e.target.value;
 });
 
 cardNumberInput.addEventListener("keyup", (e) => {
-  cardNumberElem.textContent = e.target.value;
+  const value = e.target.value
+    .replace(/[^0-9]/gi, "")
+    .replace(/(.{4})/g, "$1 ")
+    .trim();
+
+  cardNumberInput.value = value;
+  cardNumberElem.textContent = value;
 });
 
 expMonthInput.addEventListener("keyup", (e) => {
@@ -45,13 +50,20 @@ formElem.addEventListener("submit", (e) => {
   if (cvcInput.value) {
   }
 
-  document.querySelector("section").innerHTML = `
-    <div class='completeState'/>  
-      <img src="/images/icon-complete.svg"/>
-      <h1 class='completeState-title'>thank you</h1>
-      <p class='completeState-desc'>we've added your cards details</p>
-      <button>continuar</button>
-    </div>
-  `;
-  console.log("submit");
+  const completedState = `
+  <div class='completeState'/>  
+    <img src="/images/icon-complete.svg"/>
+    <h1 class='completeState-title'>thank you</h1>
+    <p class='completeState-desc'>we've added your cards details</p>
+    <button id="continueBtn" class='button'>continuar</button>
+  </div>
+`;
+
+  document.querySelector("section").innerHTML = completedState;
+
+  const continueBtn = document.querySelector("#continueBtn");
+
+  continueBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
 });
